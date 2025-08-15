@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #33aaff;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .leaderboard-container {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+        }
+        .ranking {
+            background-color: #ffffffaa;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+        }
+        .ranking h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <div class="leaderboard-container">
+        <div class="ranking">
+            <h2>Today</h2>
+            <ul id="today-ranking">
+                <li>Player1 - 12.3s</li>
+                <li>Player2 - 13.5s</li>
+                <li>Player3 - 15.0s</li>
+                <li>Player4 - 15.7s</li>
+                <li>Player5 - 16.2s</li>
+            </ul>
+        </div>
+        <div class="ranking">
+            <h2>All-time</h2>
+            <ul id="alltime-ranking">
+                <li>Player1 - 11.8s</li>
+                <li>Player2 - 12.3s</li>
+                <li>Player3 - 12.7s</li>
+                <li>Player4 - 13.1s</li>
+                <li>Player5 - 13.8s</li>
+            </ul>
+        </div>
+    </div>
+<script>
+async function loadLeaderboard(mode) {
+    const response = await fetch(`/api/leaderboard?mode=${mode}`);
+    const data = await response.json();
+    const ul = document.getElementById(mode === 'today' ? 'today-ranking' : 'alltime-ranking');
+    ul.innerHTML = '';
+    data.forEach((record, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${record.name} - ${record.time_seconds.toFixed(2)}s`;
+        ul.appendChild(li);
+    });
+}
+
+
+loadLeaderboard('today');
+loadLeaderboard('all');
+</script>
+</body>
+</html>

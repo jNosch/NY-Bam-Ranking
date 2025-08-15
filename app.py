@@ -21,8 +21,7 @@ class Record(db.Model):
 with app.app_context():
     db.create_all()
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 
 @app.route("/")
@@ -32,6 +31,8 @@ def index():
 @app.route("/leaderboard")
 def leaderboard():
     return render_template("leaderboard.html")
+
+
 
 @app.route("/api/submit", methods=["POST"])
 def submit():
@@ -62,3 +63,6 @@ def get_leadeboard():
     result = [{"name": r.name, "time_seconds": r.time_seconds, "timestamp": r.timestamp.isoformat()} for r in records]
     return jsonify(result)
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
