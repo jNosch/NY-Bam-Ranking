@@ -16,7 +16,7 @@ cd BAMRanking
 python -m venv .venv
 
 ### 3. Activate the virtual environment:
- .\.venv\Scripts\Activate
+ > .\.venv\Scripts\Activate
 
 If blocked in PowerShell, run:
 
