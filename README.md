@@ -17,7 +17,9 @@ python -m venv .venv
 
 ### 3. Activate the virtual environment:
 .\.venv\Scripts\Activate
+
 If blocked in PowerShell, run:
+
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ### 4. Install dependencies:
