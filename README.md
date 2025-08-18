@@ -1,6 +1,6 @@
 # BAM Ranking Leaderboard
 
-A simple web-based leaderboard showing "Today" and "All-time" top players, with real-time updates using Socket.IO.
+A simple web based leaderboard showing "Today" and "All-time" top players, with real-time updates using Socket.IO.
 
 ---
 
