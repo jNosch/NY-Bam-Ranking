@@ -11,28 +11,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 80px 20px;
+            padding: 20px;
         }
         h1 {
-            margin-bottom: 70px;
-            font-size: 2.7rem;
+            margin-bottom: 50px;
+            font-size: 3rem;
             color: #FFFFFF;
         }
         .leaderboard-container {
             display: flex;
-            gap: 140px;
+            gap: 120px;
             justify-content: center;
+            margin-top: 50px;
         }
         .ranking {
             background-color: #000000;
             padding: 30px;
             border-radius: 15px;
-            width: 340px;
+            width: 320px;
         }
         .ranking h2 {
             text-align: center;
-            font-size: 1.7rem;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: #FFFFFF;
         }
         ul {
@@ -41,8 +42,17 @@
             font-size: 1.3rem;
         }
         li {
-            padding: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
             border-bottom: 1px solid #ccc;
+        }
+        li span.name {
+            text-align: left;
+        }
+        li span.time {
+            text-align: right;
         }
     </style>
 </head>
@@ -51,15 +61,14 @@
     <div class="leaderboard-container">
         <div class="ranking">
             <h2>Today</h2>
-            <ul id="today-ranking">
-            </ul>
+            <ul id="today-ranking"></ul>
         </div>
         <div class="ranking">
             <h2>All-time</h2>
-            <ul id="alltime-ranking">
-            </ul>
+            <ul id="alltime-ranking"></ul>
         </div>
     </div>
+
 <script>
 async function loadLeaderboard(mode) {
     const response = await fetch(`/api/leaderboard?mode=${mode}`);
@@ -69,7 +78,18 @@ async function loadLeaderboard(mode) {
 
     data.slice(0, 10).forEach((record, index) => {
         const li = document.createElement('li');
-        li.textContent = `${index + 1}. ${record.name} - ${record.time_seconds.toFixed(2)}s`;
+
+        const nameSpan = document.createElement('span');
+        nameSpan.classList.add('name');
+        nameSpan.textContent = `${index + 1}. ${record.name}`;
+
+        const timeSpan = document.createElement('span');
+        timeSpan.classList.add('time');
+        timeSpan.textContent = `${record.time_seconds.toFixed(2)}s`;
+
+        li.appendChild(nameSpan);
+        li.appendChild(timeSpan);
+
         ul.appendChild(li);
     });
 }
