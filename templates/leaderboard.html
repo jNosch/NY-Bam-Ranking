@@ -6,41 +6,62 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #440BFF;
-            color: #FFFFFF;
+            background-color: #1d1f21;
+            color: #fcfcfc;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
         }
+
+
+        .top-banner {
+            width: 100%;
+            height: 12vh;
+            background-color: #fcfcfc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-banner img {
+            max-height: 100%;
+        }
+
+
         h1 {
-            margin-bottom: 50px;
+            margin-top: 30px;
             font-size: 3rem;
-            color: #FFFFFF;
+            color: #fcfcfc;
         }
+
         .leaderboard-container {
             display: flex;
             gap: 120px;
             justify-content: center;
             margin-top: 50px;
         }
+
         .ranking {
-            background-color: #000000;
+            background-color: #0069ff;
             padding: 30px;
             border-radius: 15px;
             width: 320px;
         }
+
         .ranking h2 {
             text-align: center;
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: #FFFFFF;
         }
+
         ul {
             list-style-type: none;
             padding-left: 0;
             font-size: 1.3rem;
         }
+
         li {
             display: flex;
             justify-content: space-between;
@@ -48,16 +69,24 @@
             padding: 12px 0;
             border-bottom: 1px solid #ccc;
         }
+
         li span.name {
             text-align: left;
         }
+
         li span.time {
             text-align: right;
         }
     </style>
 </head>
 <body>
+
+    <div class="top-banner">
+        <img src={{ url_for('static', filename='assets/Logo_Noser_Young_RGB.png') }} alt="Logo or Banner Image">
+    </div>
+
     <h1>Leaderboard</h1>
+
     <div class="leaderboard-container">
         <div class="ranking">
             <h2>Today</h2>
@@ -68,6 +97,7 @@
             <ul id="alltime-ranking"></ul>
         </div>
     </div>
+
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
 <script>
 const socket = io();

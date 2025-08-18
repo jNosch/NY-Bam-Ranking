@@ -5,6 +5,9 @@ import os
 from flask_socketio import SocketIO, emit
 
 
+#To turn on venv run this -->      .\.venv\Scripts\Activate
+#You might also need to run this if the command is blocked in powershell -->     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'leaderboard.db')}"
