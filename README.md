@@ -31,4 +31,5 @@ If blocked in PowerShell, run:
 Start your backend server and open the leaderboard in a browser:
 > python app.py
 
-the leaderboard page is under :/
+the leaderboard page is under 
+> /
