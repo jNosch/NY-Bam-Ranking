@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <style>
         body {
@@ -68,8 +68,9 @@
             <ul id="alltime-ranking"></ul>
         </div>
     </div>
-
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
 <script>
+const socket = io();
 async function loadLeaderboard(mode) {
     const response = await fetch(`/api/leaderboard?mode=${mode}`);
     const data = await response.json();
@@ -95,7 +96,13 @@ async function loadLeaderboard(mode) {
 }
 
 loadLeaderboard('today');
-loadLeaderboard('all');
+loadLeaderboard('alltime');
+
+socket.on('update leaderboard', () => {
+    console.log('Leaderboard updated');
+    loadLeaderboard('today');
+    loadLeaderboard('alltime');
+});
 </script>
 </body>
 </html>

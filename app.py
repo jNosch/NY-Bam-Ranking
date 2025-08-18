@@ -2,12 +2,14 @@ from flask import Flask, render_template, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+from flask_socketio import SocketIO, emit
 
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'leaderboard.db')}"
 db = SQLAlchemy(app)
+socketio = SocketIO(app)
 
 
 #Database
@@ -45,6 +47,8 @@ def submit():
     record = Record(name=name, time_seconds=time_seconds)
     db.session.add(record)
     db.session.commit()
+
+    socketio.emit('update leaderboard')
     return jsonify({"success": True})
 
 
