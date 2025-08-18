@@ -20,15 +20,15 @@ python -m venv .venv
 
 If blocked in PowerShell, run:
 
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ### 4. Install dependencies:
-pip install -r requirements.txt
+> pip install -r requirements.txt
 
 
 ### 5. Run
 
 Start your backend server and open the leaderboard in a browser:
-python app.py
+> python app.py
 
 the leaderboard page is under :/
