@@ -6,7 +6,7 @@ A simple web-based leaderboard showing "Today" and "All-time" top players, with 
 
 ## Setup
 
-1. Clone the repo:
+### 1. Clone the repo:
 
 
 git clone <url>
