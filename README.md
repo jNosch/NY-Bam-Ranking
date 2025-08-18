@@ -9,22 +9,22 @@ A simple web-based leaderboard showing "Today" and "All-time" top players, with 
 1. Clone the repo:
 
 
-git clone <your-repo-url>
+git clone <url>
 cd BAMRanking
 
-Create a virtual environment (if not already created):
+2.Create a virtual environment (if not already created):
 python -m venv .venv
 
-Activate the virtual environment:
+3.Activate the virtual environment:
 .\.venv\Scripts\Activate
 If blocked in PowerShell, run:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-Install dependencies:
+4.Install dependencies:
 pip install -r requirements.txt
 
 
-Run
+5.Run
 
 Start your backend server and open the leaderboard in a browser:
 python app.py
