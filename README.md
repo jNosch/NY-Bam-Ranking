@@ -8,7 +8,7 @@ A simple web-based leaderboard showing "Today" and "All-time" top players, with 
 
 1. Clone the repo:
 
-```bash
+
 git clone <your-repo-url>
 cd BAMRanking
 
