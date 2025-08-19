@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,6 +36,7 @@
             margin-top: 10vh;
             font-size: 3rem;
             color: #fcfcfc;
+            font-family: 'Roboto', sans-serif;
         }
 
         .leaderboard-container {
@@ -42,33 +46,35 @@
             margin-top: 1vh;
         }
 
-        .ranking {
-            background-color: #0069ff;
-            padding: 30px;
-            border-radius: 15px;
-            width: 320px;
-        }
+   .ranking {
+    background-color: #0069ff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 400px;
+    font-family: 'Roboto', sans-serif;
+}
 
-        .ranking h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #FFFFFF;
-        }
+.ranking h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+}
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            font-size: 1.3rem;
-        }
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 1.6rem;
+}
 
-        li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #ccc;
-        }
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+}
 
         li span.name {
             text-align: left;
