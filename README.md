@@ -33,3 +33,6 @@ Start your backend server and open the leaderboard in a browser:
 
 the leaderboard page is under 
 > /
+
+---
+If DB needs to be emptied you can delete leaderboard.db and upon restarting the app, it will be created new and empty
